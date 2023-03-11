@@ -38,9 +38,9 @@
   list-style: none;
 }
 .check {
-  margin: 3px 0;
-  color: blue;
+  display: block;
 }
+
 .text {
   display: flex;
   justify-content: space-between;

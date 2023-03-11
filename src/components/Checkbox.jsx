@@ -1,18 +1,12 @@
-import { useState } from "react";
-
-function Checkbox() {
-  const [check, setCheck] = useState(true);
-
-  function hadlerCheck() {
-    setCheck(!check);
-  }
-
+function Checkbox(props) {
   return (
-    <div hadlerCheck={hadlerCheck}>
+    <div>
+      <label htmlFor='check'></label>
       <input
+        name='check'
         type='checkbox'
-        checked={check}
-        onChange={hadlerCheck}
+        checked={props.check}
+        onChange={props.handlerChanges}
         className='check'
       />
     </div>

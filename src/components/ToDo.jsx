@@ -1,40 +1,41 @@
 import { useState } from "react";
+import Checkbox from "./Checkbox";
 
-function ToDO({ hadlerCheck }) {
+function ToDO() {
   const [todos, setTodos] = useState([
     {
       text: "HTML",
-      done: false,
     },
     {
       text: "CSS",
-      done: false,
     },
     {
       text: "JS",
-      done: false,
     },
     {
       text: "REACT",
-      done: false,
     },
   ]);
 
   const [text, setText] = useState("");
-
   function handlerChange(e) {
     setText(e.target.value);
   }
+  const [check, setCheck] = useState(false);
+  function handlerChanges() {
+    setCheck(!check);
+  }
 
-  function handlerbtn(done) {
+  function handlerbtn() {
     setTodos([
       {
         text: text,
-        done: hadlerCheck !== done ? hadlerCheck : done,
+        done: check,
       },
       ...todos,
     ]);
     setText("");
+    setCheck(false);
   }
 
   return (
@@ -49,6 +50,7 @@ function ToDO({ hadlerCheck }) {
         <button onClick={handlerbtn} className='btn'>
           add
         </button>
+        <Checkbox check={check} handlerChanges={handlerChanges} />
       </div>
 
       {todos.map((item, idx) => {
